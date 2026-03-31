@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="container">
+    <div>
+      <h1 class="login">Đăng nhập</h1>
+      <p class="login-decr">Đăng nhập tài khoản để sử dụng hệ thống quản lý.</p>
+      <div class="item-input">
+        <label for="Email" class="label-input">Email</label>
+        <input class="input" type="email" id="Email" name="Email" required />
+      </div>
+      <div class="item-input">
+        <label for="Password" class="label-input">Mật khẩu</label>
+        <input
+          class="input"
+          type="password"
+          id="Password"
+          name="Password"
+          required
+        />
+      </div>
+      <div class="checkbox-label">
+        <div>
+          <input
+            class="input-checkbox"
+            type="checkbox"
+            id="RememberMe"
+            name="RememberMe"
+          />
+          <label for="RememberMe" class="account">Nhớ tài khoản</label>
+        </div>
+        <div>
+          <a class="forgot-password" href="">Quên mật khẩu?</a>
+        </div>
+      </div>
+      <div class="login-register">
+        <button class="login-button">Đăng nhập</button>
+        <form action="">
+          <p class="not-account">
+            Bạn chưa có tài khoản? <a class="register" href="">Đăng ký</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

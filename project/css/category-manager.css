@@ -1,0 +1,436 @@
+body {
+  background: #f5f5f5;
+}
+
+/* LAYOUT */
+.main {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #eee;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 26px;
+}
+
+.logo h2 {
+  font-size: 18px;
+}
+
+.logo p {
+  font-size: 14px;
+  color: #84919a;
+}
+
+/* SIDE_BAR */
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.sidebar li.active {
+  background: #d7edff;
+  color: #0e73f6;
+  font-weight: bold;
+}
+
+.sidebar li.active svg path {
+  stroke: #0e73f6;
+}
+
+/* NAV_BAR */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.nav-bar .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* CONTENT */
+
+.content {
+  flex: 1;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* TOP BAR */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* ACTION_BTN */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions select {
+  border-radius: 8px;
+  padding: 10px 42px 10px 14px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.actions button {
+  padding: 8px 12px;
+  background: #1677ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-box input {
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-image: url("../assets/icons/Search.png");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  background-color: #f5f5f5;
+  border-radius: 18px;
+}
+
+/* TABLE */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th {
+  background-color: #f9fafb;
+  color: #667085;
+}
+
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.sort-btn {
+  margin-left: 10px;
+  border: none;
+  background-color: #f9fafb;
+  cursor: pointer;
+}
+
+/* STATUS */
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.active-status {
+  width: fit-content;
+  background: #e6f9f0;
+  color: green;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.inactive-status {
+  width: fit-content;
+  background: #ffe6e6;
+  color: red;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+/* TABLE_ACTION_BNT */
+.edit-btn,
+.del-btn {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* PAGINATION */
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 6px 10px;
+  border: 1px solid #d8dae5;
+  border-radius: 8px;
+}
+
+.pagination .active {
+  background: #1677ff;
+  color: #fff;
+}
+
+/* OVERLAY */
+.pop-up-overlay,
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  z-index: 1000;
+}
+
+.pop-up-overlay.show,
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* POP-UP */
+.pop-up-container {
+  width: 700px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.pop-up-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pop-up-header button {
+  background-color: #ffffff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.pop-up-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.add-subject {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-subject input {
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: 0;
+}
+
+.pop-up-status {
+  margin-bottom: 18px;
+}
+
+.pop-up-status p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pop-up-status span {
+  padding: 10px;
+}
+
+.pop-up-actions-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.pop-up-actions-btn button {
+  padding: 6px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.pop-up-actions-btn button:last-child {
+  background-color: #1677ff;
+  color: #ffffff;
+}
+
+/* MODAL */
+.modal-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.icons {
+  margin-bottom: 10px;
+}
+
+.icons svg {
+  width: 32px;
+  height: 32px;
+}
+
+.confirm-text {
+  margin-bottom: 20px;
+}
+
+.confirm {
+  font-weight: bold;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.confirm-action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.confirm-action button {
+  padding: 6px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.confirm-del {
+  background-color: red;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .search-box input {
+    width: 50%;
+    background-position: right 12px center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Layout chuyển dọc */
+  .main {
+    flex-direction: column;
+  }
+
+  /* Sidebar thành top bar */
+  .sidebar {
+    display: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Top bar */
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .actions select,
+  .actions button {
+    width: 100%;
+  }
+
+  /* Search full width */
+  .search-box input {
+    width: 100%;
+    background-position: right 12px center;
+  }
+
+  /* Table padding nhỏ lại */
+  th,
+  td {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

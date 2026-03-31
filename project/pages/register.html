@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký tài khoản</title>
+    <link rel="stylesheet" href="../css/register.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="container">
+    <div style="width: 100%; max-width: 560px">
+      <h1 class="register-title">Đăng ký tài khoản</h1>
+      <p class="register-descr">Đăng ký tài khoản để sử dụng dịch vụ</p>
+
+      <div class="input-row">
+        <div class="item-input">
+          <label for="LastName" class="label-input">Họ và tên đệm</label>
+          <input
+            class="input"
+            type="text"
+            id="LastName"
+            name="LastName"
+            required
+          />
+        </div>
+        <div class="item-input">
+          <label for="FirstName" class="label-input">Tên</label>
+          <input
+            class="input"
+            type="text"
+            id="FirstName"
+            name="FirstName"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="item-input">
+        <label for="Email" class="label-input">Email</label>
+        <input class="input" type="email" id="Email" name="Email" required />
+      </div>
+
+      <div class="item-input">
+        <label for="Password" class="label-input">Mật khẩu</label>
+        <input
+          class="input"
+          type="password"
+          id="Password"
+          name="Password"
+          required
+        />
+      </div>
+
+      <div class="checkbox-label">
+        <input
+          class="input-checkbox"
+          type="checkbox"
+          id="AgreeTerms"
+          name="AgreeTerms"
+        />
+        <label for="AgreeTerms" class="terms-text">
+          Bạn đồng ý với
+          <a class="terms-link" href="">chính sách và điều khoản</a>
+        </label>
+      </div>
+
+      <div class="register-wrap">
+        <button class="register-button">Đăng ký</button>
+        <p class="has-account">
+          Bạn đã có tài khoản?
+          <a class="login-link" href="">Đăng nhập</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

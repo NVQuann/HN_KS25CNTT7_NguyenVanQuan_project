@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8fafc;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 62px;
+  margin-bottom: 15px;
+}
+.login-decr {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  color: #52525b;
+  margin-bottom: 64px;
+}
+.label-input {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #090914;
+  margin-bottom: 11px;
+  font-family: "Poppins", sans-serif;
+}
+
+.item-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 526px;
+  height: 60px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 30px;
+}
+.input-checkbox {
+  border: 1px solid #94a3b8;
+  border-radius: 5px;
+}
+.checkbox-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 34px;
+}
+.account {
+  margin-left: 5px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #18181b;
+}
+.forgot-password {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  color: #2563eb;
+}
+.login-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-button {
+  width: 535px;
+  height: 55px;
+  border-radius: 16px;
+  background-color: #2563eb;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 34px;
+}
+.not-account {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  color: #64748b;
+}
+.register {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 21px;
+  color: #2563eb;
+  font-family: "Poppins", sans-serif;
+}
+
+@media (max-width: 600px) {
+  .input {
+    width: 100%;
+  }
+  .login-button {
+    width: 100%;
+  }
+}
