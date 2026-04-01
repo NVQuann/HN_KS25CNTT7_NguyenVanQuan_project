@@ -1,0 +1,43 @@
+.data-table th.col-checkbox,
+.data-table td.col-checkbox {
+  width: 50px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.data-table th.col-checkbox input[type="checkbox"],
+.data-table td.col-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #007bff;
+}
+
+.data-table th i.fa-arrow-down-long {
+  margin-left: 8px;
+  color: #bbb;
+  cursor: pointer;
+}
+
+.data-table tr.checked-row {
+  background-color: #f0f7ff;
+}
+
+.data-table tr.checked-row td {
+  border-bottom: 1px solid #e2effe;
+}
+
+.status-tag.done {
+  background-color: #e6f7ef;
+  color: #027a48;
+}
+
+.status-tag.pending {
+  background-color: #fff1f0;
+  color: #b91c1c;
+}
+
+.status-filter {
+  width: 220px;
+}

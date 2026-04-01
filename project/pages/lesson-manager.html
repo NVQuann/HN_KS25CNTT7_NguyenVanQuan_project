@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Tracker - Quản lý bài học</title>
+    <link rel="stylesheet" href="../css/category-manager.css" />
+    <link rel="stylesheet" href="../css/lesson-manager.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="logo">
+          <p>📚</p>
+          <div>
+            <strong>Study Tracker</strong>
+            <p>Quản lý tiến độ học tập</p>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a href=""><i class="fa-solid fa-chart-line"></i> Thống kê</a>
+          <a href="category-manager.html"
+            ><i class="fa-solid fa-book"></i> Quản lý môn học</a
+          >
+          <a href="lesson-manager.html" class="active"
+            ><i class="fa-solid fa-file-lines"></i> Quản lý bài học</a
+          >
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="top-header">
+          <div class="header-left">
+            <i class="fa-solid fa-grip-vertical"></i>
+          </div>
+          <div class="header-right">
+            <i class="fa-regular fa-bell"></i>
+            <i class="fa-regular fa-circle-question"></i>
+            <i class="fa-solid fa-gear"></i>
+            <img src="/assets/avatar_nu.jpg" alt="Avatar" class="user-avatar" />
+          </div>
+        </header>
+
+        <div class="content-body">
+          <div class="title-row">
+            <h1>Bài học</h1>
+            <div class="title-actions">
+              <select class="status-filter">
+                <option>Lọc theo môn học</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="c">Lập trình C</option>
+              </select>
+              <button class="btn-add" id="btnOpenModal">Thêm mới bài học</button>
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="col-checkbox"><input type="checkbox" /></th>
+                <th>Tên bài học <i class="fa-solid fa-arrow-down-long"></i></th>
+                <th>
+                  Thời gian học <i class="fa-solid fa-arrow-down-long"></i>
+                </th>
+                <th>Trạng thái</th>
+                <th>Chức năng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="checked-row">
+                <td class="col-checkbox"><input type="checkbox" checked /></td>
+                <td>Session 01 - Tổng quan về HTML</td>
+                <td>45</td>
+                <td><span class="status-tag done">● Đã hoàn thành</span></td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" /></td>
+                <td>Session 02 - Thẻ Inline và Block</td>
+                <td>60</td>
+                <td>
+                  <span class="status-tag pending">● Chưa hoàn thành</span>
+                </td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+              <tr class="checked-row">
+                <td class="col-checkbox"><input type="checkbox" checked /></td>
+                <td>Session 03 - Form và Table</td>
+                <td>40</td>
+                <td><span class="status-tag done">● Đã hoàn thành</span></td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" /></td>
+                <td>Session 04 - CSS cơ bản</td>
+                <td>45</td>
+                <td>
+                  <span class="status-tag pending">● Chưa hoàn thành</span>
+                </td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" /></td>
+                <td>Session 05 - CSS layout</td>
+                <td>60</td>
+                <td>
+                  <span class="status-tag pending">● Chưa hoàn thành</span>
+                </td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" /></td>
+                <td>Session 06 - CSS Flex box</td>
+                <td>45</td>
+                <td>
+                  <span class="status-tag pending">● Chưa hoàn thành</span>
+                </td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+              <tr class="checked-row">
+                <td class="col-checkbox"><input type="checkbox" checked /></td>
+                <td>Session 12 - Con trỏ trong C</td>
+                <td>45</td>
+                <td><span class="status-tag done">● Đã hoàn thành</span></td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-checkbox"><input type="checkbox" /></td>
+                <td>Session 15 - Đọc và ghi file</td>
+                <td>60</td>
+                <td>
+                  <span class="status-tag pending">● Chưa hoàn thành</span>
+                </td>
+                <td class="actions">
+                  <i class="fa-regular fa-trash-can delete"></i>
+                  <i class="fa-solid fa-pencil edit"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="pagination">
+          <div class="pagination">
+            <button><i class="fa-solid fa-arrow-left"></i></button>
+            <button>1</button>
+            <button>2</button>
+            <button class="active">3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>...</button>
+            <button>20</button>
+            <button><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
