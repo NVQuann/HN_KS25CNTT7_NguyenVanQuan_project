@@ -185,3 +185,44 @@ body {
     height: 50px;
   }
 }
+
+.error-msg {
+  color: #dc2626;
+  font-size: 13px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.input.error-border {
+  border-color: #dc2626;
+  margin-bottom: 0px;
+}
+
+.checkbox-label.error-border {
+  margin-bottom: 0px;
+}
+
+.toast {
+  position: fixed;
+  top: 24px;
+  right: -400px;
+  background-color: #10b981;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: right 0.4s ease-in-out;
+  z-index: 9999;
+}
+
+.toast.show {
+  right: 24px;
+}

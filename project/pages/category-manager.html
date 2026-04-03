@@ -26,7 +26,9 @@
           <a href="" class="active"
             ><i class="fa-solid fa-book"></i> Quản lý môn học</a
           >
-          <a href="lesson-manager.html"><i class="fa-solid fa-file-lines"></i> Quản lý bài học</a>
+          <a href="lesson-manager.html"
+            ><i class="fa-solid fa-file-lines"></i> Quản lý bài học</a
+          >
         </nav>
       </aside>
 
@@ -39,7 +41,11 @@
             <i class="fa-regular fa-bell"></i>
             <i class="fa-regular fa-circle-question"></i>
             <i class="fa-solid fa-gear"></i>
-            <img src="/assets/avatar_nu.jpg" alt="Avatar" class="user-avatar" />
+            <img
+              src="../assets/icons/avatar.png"
+              alt="Avatar"
+              class="user-avatar"
+            />
           </div>
         </header>
 
@@ -52,7 +58,9 @@
                 <option value="">Đang hoạt động</option>
                 <option value="">Ngừng hoạt động</option>
               </select>
-              <button class="btn-add" id="btnOpenModal">Thêm mới môn học</button>
+              <button class="btn-add" id="btnOpenModal">
+                Thêm mới môn học
+              </button>
             </div>
           </div>
 
@@ -166,12 +174,14 @@
       </main>
     </div>
 
-    <!-- Modal Thêm mới môn học -->
-    <div class="modal-overlay" id="addModal" style="display: none;">
+    <!-- Thêm mới môn học -->
+    <div class="modal-overlay" id="addModal" style="display: none">
       <div class="modal-content">
         <div class="modal-header">
           <h2>Thêm mới môn học</h2>
-          <button class="btn-close" id="btnCloseModal"><i class="fa-solid fa-xmark"></i></button>
+          <button class="btn-close" id="btnCloseModal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
         <div class="modal-body">
           <div class="form-group">
@@ -199,12 +209,14 @@
       </div>
     </div>
 
-    <!-- Modal Cập nhật môn học -->
-    <div class="modal-overlay" id="editModal" style="display: none;">
+    <!-- Cập nhật môn học -->
+    <div class="modal-overlay" id="editModal" style="display: none">
       <div class="modal-content">
         <div class="modal-header">
           <h2>Cập nhật môn học</h2>
-          <button class="btn-close" id="btnCloseEditModal"><i class="fa-solid fa-xmark"></i></button>
+          <button class="btn-close" id="btnCloseEditModal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
         <div class="modal-body">
           <div class="form-group">
@@ -232,15 +244,19 @@
       </div>
     </div>
 
-    <!-- Modal Xóa môn học (Xác nhận) -->
-    <div class="modal-overlay" id="deleteModal" style="display: none;">
+    <!-- Xóa môn học (Xác nhận) -->
+    <div class="modal-overlay" id="deleteModal" style="display: none">
       <div class="modal-content">
         <div class="delete-icon-wrapper">
           <i class="fa-solid fa-circle-exclamation"></i>
         </div>
         <h2 class="delete-title">Xác nhận</h2>
         <p class="delete-message">
-          Bạn có chắc chắn muốn xóa môn học <strong id="deleteSubjectName">Lập trình cơ bản Frontend Fundamental</strong> khỏi hệ thống không?
+          Bạn có chắc chắn muốn xóa môn học
+          <strong id="deleteSubjectName"
+            >Lập trình cơ bản Frontend Fundamental</strong
+          >
+          khỏi hệ thống không?
         </p>
         <div class="delete-divider"></div>
         <div class="modal-footer">
@@ -250,97 +266,6 @@
       </div>
     </div>
 
-    <script>
-      // === MODAL THÊM MỚI ===
-      const modal = document.getElementById('addModal');
-      const btnOpen = document.getElementById('btnOpenModal');
-      const btnClose = document.getElementById('btnCloseModal');
-      const btnCancel = document.getElementById('btnCancelModal');
-
-      if(btnOpen && modal) {
-        btnOpen.addEventListener('click', function() {
-          modal.style.display = 'flex';
-        });
-      }
-
-      const closeModal = function() {
-        if(modal) modal.style.display = 'none';
-      };
-
-      if(btnClose) btnClose.addEventListener('click', closeModal);
-      if(btnCancel) btnCancel.addEventListener('click', closeModal);
-
-      // === MODAL CẬP NHẬT ===
-      const editModal = document.getElementById('editModal');
-      const btnCloseEdit = document.getElementById('btnCloseEditModal');
-      const btnCancelEdit = document.getElementById('btnCancelEditModal');
-
-      // Lấy tất cả các nút hình bút chì trong bảng
-      const editIcons = document.querySelectorAll('.fa-pencil.edit');
-
-      editIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-          if (editModal) {
-            editModal.style.display = 'flex';
-          }
-        });
-      });
-
-      const closeEditModal = function() {
-        if (editModal) {
-          editModal.style.display = 'none';
-        }
-      };
-
-      if(btnCloseEdit) btnCloseEdit.addEventListener('click', closeEditModal);
-      if(btnCancelEdit) btnCancelEdit.addEventListener('click', closeEditModal);
-
-      // === MODAL XÓA ===
-      const deleteModal = document.getElementById('deleteModal');
-      const btnCancelDelete = document.getElementById('btnCancelDeleteModal');
-      const deleteSubjectNameLabel = document.getElementById('deleteSubjectName');
-
-      const deleteIcons = document.querySelectorAll('.fa-trash-can.delete');
-
-      deleteIcons.forEach(icon => {
-        icon.addEventListener('click', function(e) {
-          const tr = e.target.closest('tr');
-          if(!tr) return;
-          
-          const tdList = tr.querySelectorAll('td');
-          if (tdList.length > 0) {
-            // Cập nhật tên môn học sẽ bị xóa vào dòng tin nhắn
-            if(deleteSubjectNameLabel) {
-              deleteSubjectNameLabel.innerText = tdList[0].innerText.trim();
-            }
-          }
-
-          if(deleteModal) {
-            deleteModal.style.display = 'flex';
-          }
-        });
-      });
-
-      const closeDeleteModal = function() {
-        if (deleteModal) {
-          deleteModal.style.display = 'none';
-        }
-      };
-
-      if(btnCancelDelete) btnCancelDelete.addEventListener('click', closeDeleteModal);
-
-      // Đóng modal tự động khi click ra ngoài overlay
-      window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-          closeModal();
-        }
-        if (event.target === editModal) {
-          closeEditModal();
-        }
-        if (event.target === deleteModal) {
-          closeDeleteModal();
-        }
-      });
-    </script>
+    <script src="../js/category-manager.js"></script>
   </body>
 </html>
