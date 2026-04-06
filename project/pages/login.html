@@ -26,6 +26,7 @@
           name="Email"
           placeholder="nva@gmail.com"
         />
+        <div id="EmailError" class="error-msg hidden"></div>
       </div>
       <div class="item-input">
         <label for="Password" class="label-input">Mật khẩu</label>
@@ -36,6 +37,7 @@
           name="Password"
           placeholder="Nhập mật khẩu"
         />
+        <div id="PasswordError" class="error-msg hidden"></div>
       </div>
       <div class="checkbox-label">
         <div>
@@ -61,6 +63,9 @@
         </form>
       </div>
     </div>
+
+    <!-- Toast Component -->
+    <div id="toast"></div>
 
     <script src="../js/login.js"></script>
   </body>

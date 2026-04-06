@@ -1,3 +1,13 @@
+// Redirect to dashboard if already logged in
+if (localStorage.getItem("currentUser")) {
+  window.location.href = "./mainpage.html";
+}
+
+const inputLink = document.getElementById("input-link");
+inputLink.addEventListener("click", (e) => {
+  e.preventDefault();
+});
+
 const btnRegister = document.querySelector("#button");
 
 btnRegister.addEventListener("click", function (e) {
