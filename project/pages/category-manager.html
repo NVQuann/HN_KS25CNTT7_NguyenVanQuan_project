@@ -53,10 +53,11 @@
           <div class="title-row">
             <h1>Môn học</h1>
             <div class="title-actions">
-              <select class="status-filter">
-                <option>Lọc theo trạng thái</option>
-                <option value="">Đang hoạt động</option>
-                <option value="">Ngừng hoạt động</option>
+
+              <select class="status-filter" id="statusFilter">
+                <option value="">Lọc theo trạng thái</option>
+                <option value="active">Đang hoạt động</option>
+                <option value="inactive">Ngừng hoạt động</option>
               </select>
               <button class="btn-add" id="btnOpenModal">
                 Thêm mới môn học
@@ -66,7 +67,7 @@
 
           <div class="search-row">
             <div class="search-wrapper">
-              <input type="text" placeholder="Tìm kiếm môn học theo tên..." />
+              <input type="text" id="searchInput" placeholder="Tìm kiếm môn học theo tên..." />
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
@@ -79,103 +80,20 @@
                 <th>Chức năng</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Lập trình C</td>
-                <td><span class="status-tag active">● Đang hoạt động</span></td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lập trình Frontend với ReactJS</td>
-                <td>
-                  <span class="status-tag inactive">● Ngừng hoạt động</span>
-                </td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lập trình Backend với Spring boot</td>
-                <td><span class="status-tag active">● Đang hoạt động</span></td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lập trình Frontend với VueJS</td>
-                <td>
-                  <span class="status-tag inactive">● Ngừng hoạt động</span>
-                </td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Cấu trúc dữ liệu và giải thuật</td>
-                <td>
-                  <span class="status-tag inactive">● Ngừng hoạt động</span>
-                </td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Phân tích và thiết kế hệ thống</td>
-                <td>
-                  <span class="status-tag inactive">● Ngừng hoạt động</span>
-                </td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Toán cao cấp</td>
-                <td><span class="status-tag active">● Đang hoạt động</span></td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Tiếng Anh chuyên ngành</td>
-                <td>
-                  <span class="status-tag inactive">● Ngừng hoạt động</span>
-                </td>
-                <td class="actions">
-                  <i class="fa-regular fa-trash-can delete"></i>
-                  <i class="fa-solid fa-pencil edit"></i>
-                </td>
-              </tr>
+            <tbody id="subject-table-body">
+              <!-- Dữ liệu được đổ bằng Javascript -->
             </tbody>
           </table>
 
-          <div class="pagination">
-            <button><i class="fa-solid fa-arrow-left"></i></button>
-            <button>1</button>
-            <button>2</button>
-            <button class="active">3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>7</button>
-            <button>...</button>
-            <button>20</button>
-            <button><i class="fa-solid fa-arrow-right"></i></button>
+          <div class="pagination" id="pagination-container">
+            <!-- Phân trang bằng Javascript -->
           </div>
         </div>
       </main>
     </div>
 
     <!-- Thêm mới môn học -->
-    <div class="modal-overlay" id="addModal" style="display: none">
+    <div class="modal-overlay" id="addModal">
       <div class="modal-content">
         <div class="modal-header">
           <h2>Thêm mới môn học</h2>
@@ -186,17 +104,18 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Tên môn học</label>
-            <input type="text" class="form-control" />
+            <input type="text" class="form-control" id="addInputName" />
+            <div id="addNameError" style="display: none; color: #ff4d4f; font-size: 12px; margin-top: 4px;">Tên môn học không được để trống</div>
           </div>
           <div class="form-group">
             <label>Trạng thái</label>
             <div class="radio-group">
               <label class="radio-label">
-                <input type="radio" name="status" checked />
+                <input type="radio" name="addStatus" value="active" checked />
                 <span>Đang hoạt động</span>
               </label>
               <label class="radio-label">
-                <input type="radio" name="status" />
+                <input type="radio" name="addStatus" value="inactive" />
                 <span>Ngừng hoạt động</span>
               </label>
             </div>
@@ -204,13 +123,13 @@
         </div>
         <div class="modal-footer">
           <button class="btn-cancel" id="btnCancelModal">Hủy</button>
-          <button class="btn-submit">Thêm</button>
+          <button class="btn-submit" id="btnSubmitAdd">Thêm</button>
         </div>
       </div>
     </div>
 
     <!-- Cập nhật môn học -->
-    <div class="modal-overlay" id="editModal" style="display: none">
+    <div class="modal-overlay" id="editModal">
       <div class="modal-content">
         <div class="modal-header">
           <h2>Cập nhật môn học</h2>
@@ -222,16 +141,17 @@
           <div class="form-group">
             <label>Tên môn học</label>
             <input type="text" class="form-control" id="editInputName" />
+            <div id="editNameError" style="display: none; color: #ff4d4f; font-size: 12px; margin-top: 4px;">Tên môn học không được để trống</div>
           </div>
           <div class="form-group">
             <label>Trạng thái</label>
             <div class="radio-group">
               <label class="radio-label">
-                <input type="radio" name="editStatus" checked />
+                <input type="radio" name="editStatus" value="active" checked />
                 <span>Đang hoạt động</span>
               </label>
               <label class="radio-label">
-                <input type="radio" name="editStatus" />
+                <input type="radio" name="editStatus" value="inactive" />
                 <span>Ngừng hoạt động</span>
               </label>
             </div>
@@ -239,13 +159,13 @@
         </div>
         <div class="modal-footer">
           <button class="btn-cancel" id="btnCancelEditModal">Hủy</button>
-          <button class="btn-submit">Lưu</button>
+          <button class="btn-submit" id="btnSubmitEdit">Lưu</button>
         </div>
       </div>
     </div>
 
     <!-- Xóa môn học (Xác nhận) -->
-    <div class="modal-overlay" id="deleteModal" style="display: none">
+    <div class="modal-overlay" id="deleteModal">
       <div class="modal-content">
         <div class="delete-icon-wrapper">
           <i class="fa-solid fa-circle-exclamation"></i>
@@ -261,12 +181,25 @@
         <div class="delete-divider"></div>
         <div class="modal-footer">
           <button class="btn-cancel" id="btnCancelDeleteModal">Hủy</button>
-          <button class="btn-delete-confirm">Xóa</button>
+          <button class="btn-delete-confirm" id="btnConfirmDelete">Xóa</button>
         </div>
       </div>
     </div>
 
     <script src="../js/category-manager.js"></script>
+    <!-- Menu & Modal dùng chung cho chức năng đăng xuất -->
+    <div id="user-dropdown" style="display: none; position: absolute; right: 20px; top: 60px; background: white; border: 1px solid #ccc; padding: 10px; border-radius: 5px; z-index: 999;">
+        <button id="btn-show-logout" style="color: red; border: none; background: transparent; cursor: pointer; font-size: 14px;">Đăng xuất</button>
+    </div>
+
+    <div id="logout-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 20px; border-radius: 8px; text-align: center;">
+            <p style="margin-bottom: 20px;">Bạn có chắc chắn muốn đăng xuất?</p>
+            <button id="btn-cancel-logout" style="padding: 5px 15px; margin-right: 10px; cursor: pointer;">Hủy</button>
+            <button id="btn-confirm-logout" style="padding: 6px 15px; background: red; color: white; border: none; border-radius: 4px; cursor: pointer;">Đăng xuất</button>
+        </div>
+    </div>
+
     <script src="../js/logout.js"></script>
   </body>
 </html>

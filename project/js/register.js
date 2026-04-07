@@ -39,6 +39,12 @@ btnRegister.addEventListener("click", function (e) {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  // Hàm để lấy ID người dùng tiếp theo (giả sử ID là số nguyên tăng dần)
+  const nextUserId = (users) => {
+    if (users.length === 0) return 1;
+    return Math.max(...users.map((u) => u.id)) + 1;
+  };
+
   // Validate LastName & FirstName
   if (!lastName) {
     showError(
@@ -108,6 +114,7 @@ btnRegister.addEventListener("click", function (e) {
     }
 
     const newUser = {
+      id: nextUserId(users),
       lastName,
       firstName,
       email,

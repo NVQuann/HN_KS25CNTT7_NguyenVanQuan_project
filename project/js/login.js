@@ -1,4 +1,3 @@
-// Redirect to dashboard if already logged in
 if (localStorage.getItem("currentUser")) {
   window.location.href = "./mainpage.html";
 }
@@ -8,7 +7,6 @@ const btnLogin = document.querySelector(".login-button");
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
 
-  // Reset errors
   document
     .querySelectorAll(".error-msg")
     .forEach((el) => el.classList.add("hidden"));
@@ -38,18 +36,22 @@ btnLogin.addEventListener("click", function (e) {
 
   if (isValid) {
     const users = JSON.parse(localStorage.getItem("users") || "[]");
-    
-    // Check credentials
-    const foundUser = users.find((u) => u.email === email && u.password === password);
-    
+
+    const foundUser = users.find(
+      (u) => u.email === email && u.password === password,
+    );
+
     if (!foundUser) {
       showError(emailInput, "#EmailError", "Email hoặc Mật khẩu không đúng");
-      showError(passwordInput, "#PasswordError", "Email hoặc Mật khẩu không đúng");
+      showError(
+        passwordInput,
+        "#PasswordError",
+        "Email hoặc Mật khẩu không đúng",
+      );
       showToast("Đăng nhập thất bại!", "#e74c3c");
       return;
     }
 
-    // Save login session
     localStorage.setItem("currentUser", JSON.stringify(foundUser));
 
     showToast("Đăng nhập thành công!", "#4caf50");
